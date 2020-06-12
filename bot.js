@@ -1,11 +1,12 @@
-﻿const Discord = require("discord.js");
+const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = "#";
 
 
 
 client.on('ready', () => {
-   console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+});
       console.log(`Brodcast Bot`);
         console.log(`----------------`);
       console.log(`ON ${client.guilds.size} Servers '     Brodcast Bot ' `);
@@ -417,5 +418,4 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
  })
 
 
-
-client.login(process.env.BOT_TOKEN);
+client.login('token');
