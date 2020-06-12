@@ -1,27 +1,57 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = "#";
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://bot-system33.glitch.me/`);
+}, 280000);
 
-
+const Discord = require('discord.js');  
+const client = new Discord.Client();  
+const moment = require('moment');
+const zalgo = require('zalgolize');  
+const math = require('math-expression-evaluator');   
+const figlet = require('figlet');   
+const fs = require('fs');  
+const ms = require('ms');  
+client.login('NzIwOTE5ODM5NDI1ODIyNzUw.XuNGnw.ZL1_ejX9Xa3PzN2DKmvrI1m3L2k');
+const prefix = '-'
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-      console.log(`Brodcast Bot`);
-        console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Brodcast Bot ' `);
-    console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`$bc |DF_Team`,"http://twitch.tv/Death Shop")
+  console.log(`Start : ${client.user.tag}!`);
+client.user.setGame(`𝑷𝑯𝑶𝑬𝑵𝑰𝑿 𝑺𝑻𝑶𝑹𝑬 𝑩𝑶𝑻`,"")
 client.user.setStatus("o")
 });
 
 
-
-client.on('message', message => {
+client.on("message", message => { 
+              var args = message.content.substring(prefix.length).split(" ");
+              if (message.content.startsWith(prefix + "clear")) {
+                  if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠  لا يوجد لديك صلاحية لمسح الشات**');
+          var msg;
+          msg = parseInt();
+        
+        message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+        message.channel.sendMessage("", {embed: {
+          title: "تــم مسح الشات",
+          color: 0x5016f3, 
+          footer: {
+            
+          }
+        }}).then(msg => {msg.delete(3000)});
+                            }
+  
+       
+  });
+ 
+ client.on('message', message => {
 if(message.author.bot) return;
 if(message.channel.type === 'dm') return;
-    if(message.content.startsWith(prefix + 'AG')) {
+    if(message.content.startsWith(prefix + 'Pbc')) {
           if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send("?|**`ADMINISTRATOR`ليس لديك صلاحيات`**  ");
      let filter = m => m.author.id === message.author.id;
@@ -416,6 +446,19 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
  })
  })
  })
+     cancel.on('collect', r => {
+         let cancelembed = new Discord.RichEmbed()
+         .setTitle('Successfully Canceled :x:')
+      message.channel.sendEmbed(cancelembed)
+         embedmsg.stop();
+         normalmsg.stop();
+         onlyrole.stop();
+         embedonlyrole.stop();
+         embedonlineonly.stop()
+         onlineonly.stop()
+         cancel.stop();
+     })
+ })
+    }});
 
-
-client.login('token');
+client.login(process.env.BOT_TOKEN);
