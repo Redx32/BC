@@ -17,7 +17,7 @@ const math = require('math-expression-evaluator');
 const figlet = require('figlet');   
 const fs = require('fs');  
 const ms = require('ms');  
-client.login('NzIwOTE5ODM5NDI1ODIyNzUw.XuNGnw.ZL1_ejX9Xa3PzN2DKmvrI1m3L2k');
+client.login('NzIwOTE5ODM5NDI1ODIyNzUw.XuNG1g.4eH7dIqkhDrnEeYRBrjHJp_nRgg');
 const prefix = '-'
 
 client.on('ready', () => {
